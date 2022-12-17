@@ -202,6 +202,14 @@ const GameProvider = ({children}) => {
         }else{
             setShowToast(true);
             setWinName("the deck is over");
+            const newOrderCardsOne = [...playerOne.cards].sort((a, b) =>
+                    a.value > b.value ? 1 : -1,
+            );
+            setPlayerOne({...playerOne, cards: newOrderCardsOne});
+            const newOrderCardsTwo = [...playerTwo.cards].sort((a, b) =>
+                a.value > b.value ? 1 : -1,
+            );
+            setPlayerTwo({...playerTwo, cards: newOrderCardsTwo});
         }
     }
 
